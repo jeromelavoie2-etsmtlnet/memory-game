@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.snatik.matches.R;
 import com.snatik.matches.common.Shared;
+import com.snatik.matches.engine.Engine;
 import com.snatik.matches.events.engine.FlipDownCardsEvent;
 import com.snatik.matches.events.engine.GameWonEvent;
 import com.snatik.matches.events.engine.HidePairCardsEvent;
@@ -24,10 +24,10 @@ import com.snatik.matches.utils.FontLoader.Font;
 
 public class GameFragment extends BaseFragment {
 
+	public static Game mPlayingGame = null;
 	private BoardView mBoardView;
 	private TextView mTime;
 	private ImageView mTimeImage;
-	private LinearLayout ads;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -60,11 +60,10 @@ public class GameFragment extends BaseFragment {
 	}
 
 	private void buildBoard() {
-		Game game = Shared.engine.getActiveGame();
-		int time = game.boardConfiguration.time;
+		int time = mPlayingGame.boardConfiguration.time;
 		setTime(time);
-		mBoardView.setBoard(game);
-		
+		mBoardView.setBoard(mPlayingGame);
+
 		startClock(time);
 	}
 	
@@ -90,19 +89,16 @@ public class GameFragment extends BaseFragment {
 		});
 	}
 
-	@Override
 	public void onEvent(GameWonEvent event) {
 		mTime.setVisibility(View.GONE);
 		mTimeImage.setVisibility(View.GONE);
 		PopupManager.showPopupWon(event.gameState);
 	}
 
-	@Override
 	public void onEvent(FlipDownCardsEvent event) {
 		mBoardView.flipDownAll();
 	}
 
-	@Override
 	public void onEvent(HidePairCardsEvent event) {
 		mBoardView.hideCards(event.id1, event.id2);
 	}

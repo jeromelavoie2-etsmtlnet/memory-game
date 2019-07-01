@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import com.snatik.matches.R;
 import com.snatik.matches.common.Memory;
 import com.snatik.matches.common.Music;
+import com.snatik.matches.common.ScreenEnum;
 import com.snatik.matches.common.Shared;
-import com.snatik.matches.engine.ScreenController.Screen;
 import com.snatik.matches.events.EventObserverAdapter;
 import com.snatik.matches.events.engine.FlipDownCardsEvent;
 import com.snatik.matches.events.engine.GameWonEvent;
@@ -90,7 +90,6 @@ public class Engine extends EventObserverAdapter {
 		mInstance = null;
 	}
 
-	@Override
 	public void onEvent(ResetBackgroundEvent event) {
 		Drawable drawable = mBackgroundImage.getDrawable();
 		if (drawable != null) {
@@ -112,12 +111,10 @@ public class Engine extends EventObserverAdapter {
 		}
 	}
 
-	@Override
 	public void onEvent(StartEvent event) {
-		mScreenController.openScreen(Screen.THEME_SELECT);
+		mScreenController.openScreen(ScreenEnum.Screen.THEME_SELECT);
 	}
 
-	@Override
 	public void onEvent(NextGameEvent event) {
 		PopupManager.closePopup();
 		int difficulty = mPlayingGame.boardConfiguration.difficulty;
@@ -127,16 +124,14 @@ public class Engine extends EventObserverAdapter {
 		Shared.eventBus.notify(new DifficultySelectedEvent(difficulty));
 	}
 
-	@Override
 	public void onEvent(BackGameEvent event) {
 		PopupManager.closePopup();
-		mScreenController.openScreen(Screen.DIFFICULTY);
+		mScreenController.openScreen(ScreenEnum.Screen.DIFFICULTY);
 	}
 
-	@Override
 	public void onEvent(ThemeSelectedEvent event) {
 		mSelectedTheme = event.theme;
-		mScreenController.openScreen(Screen.DIFFICULTY);
+		mScreenController.openScreen(ScreenEnum.Screen.DIFFICULTY);
 		AsyncTask<Void, Void, TransitionDrawable> task = new AsyncTask<Void, Void, TransitionDrawable>() {
 
 			@Override
@@ -161,7 +156,6 @@ public class Engine extends EventObserverAdapter {
 		task.execute();
 	}
 
-	@Override
 	public void onEvent(DifficultySelectedEvent event) {
 		mFlippedId = -1;
 		mPlayingGame = new Game();
@@ -173,7 +167,8 @@ public class Engine extends EventObserverAdapter {
 		arrangeBoard();
 
 		// start the screen
-		mScreenController.openScreen(Screen.GAME);
+		mScreenController.mPlayingGame = mPlayingGame;
+		mScreenController.openScreen(ScreenEnum.Screen.GAME);
 	}
 
 	private void arrangeBoard() {
@@ -213,7 +208,6 @@ public class Engine extends EventObserverAdapter {
 		mPlayingGame.boardArrangment = boardArrangment;
 	}
 
-	@Override
 	public void onEvent(FlipCardEvent event) {
 		// Log.i("my_tag", "Flip: " + event.id);
 		int id = event.id;

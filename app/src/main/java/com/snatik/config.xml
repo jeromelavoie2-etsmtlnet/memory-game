@@ -1,0 +1,207 @@
+<measurement>
+
+<!-- package aspect -->
+
+   <!-- Number Of Interfaces -->
+   <method class="jmt.application.measurement.packages.NumberOfInterfaces">
+    <ranking type="plateau">
+     <point value="10" rank="1"/>
+     <point value="25" rank="0.75"/>
+     <point value="50" rank="0.5"/>
+     <point value="100" rank="0.25"/>
+     <point value="150" rank="0"/>
+    </ranking>
+   </method>
+
+   <!-- Number Of Classes -->
+   <method class="jmt.application.measurement.packages.NumberOfClasses">
+    <ranking type="plateau">
+     <point value="10" rank="1"/>
+     <point value="25" rank="0.75"/>
+     <point value="50" rank="0.5"/>
+     <point value="100" rank="0.25"/>
+     <point value="150" rank="0"/>
+    </ranking>
+   </method>
+
+   <!-- Number Of Public Interfaces  -->
+   <method class="jmt.application.measurement.packages.NumberOfPublicInterfaces">
+    <ranking type="plateau">
+     <point value="5" rank="1"/>
+     <point value="10" rank="0.75"/>
+     <point value="25" rank="0.5"/>
+     <point value="50" rank="0.25"/>
+     <point value="100" rank="0"/>
+    </ranking>
+   </method>
+
+   <!-- NumberOfPublicClassesMethod -->
+   <method class="jmt.application.measurement.packages.NumberOfPublicClasses">
+    <ranking type="plateau">
+     <point value="2" rank="1"/>
+     <point value="5" rank="0.75"/>
+     <point value="10" rank="0.5"/>
+     <point value="25" rank="0.25"/>
+     <point value="50" rank="0"/>
+    </ranking>
+   </method>
+
+   <!-- number of public extendable classes -->
+   <method class="jmt.application.measurement.packages.NumberOfPublicExtendableClasses">
+    <ranking type="plateau">
+     <point value="0" rank="1"/>
+     <point value="1" rank="0.75"/>
+     <point value="3" rank="0.5"/>
+     <point value="5" rank="0.25"/>
+     <point value="10" rank="0"/>
+    </ranking>
+   </method>
+
+   <!-- lines of code -->
+   <method class="jmt.application.measurement.packages.LinesOfCode">
+    <ranking type="plateau">
+     <point value="100" rank="1"/>
+     <point value="250" rank="0.75"/>
+     <point value="500" rank="0.5"/>
+     <point value="2500" rank="0.25"/>
+     <point value="5000" rank="0"/>
+    </ranking>
+   </method>
+
+<!-- class aspect -->
+
+  <!-- lines of code method -->
+  <method class="jmt.application.measurement.classes.LinesOfCode">
+    <ranking type="plateau">
+     <point value="10" rank="1"/>
+     <point value="25" rank="0.75"/>
+     <point value="50" rank="0.5"/>
+     <point value="100" rank="0.25"/>
+     <point value="250" rank="0"/>
+    </ranking>
+   </method>
+
+  <!-- number of public methods method -->
+  <method class="jmt.application.measurement.classes.NumberOfPublicMethods">
+    <ranking type="plateau">
+     <point value="3" rank="1"/>
+     <point value="8" rank="0.75"/>
+     <point value="15" rank="0.5"/>
+     <point value="25" rank="0.25"/>
+     <point value="50" rank="0"/>
+    </ranking>   
+   </method>
+
+  <!-- weighted methods per class method -->
+  <method class="jmt.application.measurement.classes.WeightedMethodsPerClass">
+    <ranking type="plateau">
+     <point value="4" rank="1"/>
+     <point value="10" rank="0.75"/>
+     <point value="25" rank="0.5"/>
+     <point value="50" rank="0.25"/>
+     <point value="100" rank="0"/>
+    </ranking>
+   </method> 
+
+  <!-- weighted attributes per class method -->
+  <method class="jmt.application.measurement.classes.WeightedAttributesPerClass">
+    <ranking type="plateau">
+     <point value="1" rank="1"/>
+     <point value="3" rank="0.75"/>
+     <point value="5" rank="0.5"/>
+     <point value="10" rank="0.25"/>
+     <point value="20" rank="0"/>
+    </ranking>
+   </method>
+
+  <!-- number of inherited methods method -->
+  <method class="jmt.application.measurement.classes.NumberOfInheritedMethods">
+    <ranking type="plateau">
+     <point value="10" rank="1"/>
+     <point value="25" rank="0.75"/>
+     <point value="50" rank="0.5"/>
+     <point value="100" rank="0.25"/>
+     <point value="250" rank="0"/>
+    </ranking>
+   </method>
+
+  <!-- number of methods overridden method -->
+  <method class="jmt.application.measurement.classes.NumberOfMethodsOverridden">
+    <ranking type="plateau">
+     <point value="0" rank="1"/>
+     <point value="5" rank="0.75"/>
+     <point value="10" rank="0.5"/>
+     <point value="25" rank="0.25"/>
+     <point value="50" rank="0"/>
+    </ranking>
+   </method>
+
+  <!-- depth of inheritance tree method -->
+  <method class="jmt.application.measurement.classes.DepthOfInheritanceTree">
+    <ranking type="plateau">
+     <point value="2" rank="1"/>
+     <point value="4" rank="0.75"/>
+     <point value="7" rank="0.5"/>
+     <point value="10" rank="0.25"/>
+     <point value="15" rank="0"/>
+    </ranking>
+   </method>
+
+  <!-- number of children method -->
+  <method class="jmt.application.measurement.classes.NumberOfChildren">
+    <ranking type="plateau">
+     <point value="1" rank="1"/>
+     <point value="3" rank="0.75"/>
+     <point value="6" rank="0.5"/>
+     <point value="10" rank="0.25"/>
+     <point value="20" rank="0"/>
+    </ranking>
+   </method>
+
+  <!-- coupling between object classes method -->
+  <method class="jmt.application.measurement.classes.CouplingBetweenObjectClasses">
+    <ranking type="plateau">
+     <point value="4" rank="1"/>
+     <point value="10" rank="0.75"/>
+     <point value="25" rank="0.5"/>
+     <point value="50" rank="0.25"/>
+     <point value="100" rank="0"/>
+    </ranking>
+   </method>
+
+  <!-- response for a class method -->
+  <method class="jmt.application.measurement.classes.ResponseForAClass">
+    <ranking type="plateau">
+     <point value="10" rank="1"/>
+     <point value="25" rank="0.75"/>
+     <point value="50" rank="0.5"/>
+     <point value="100" rank="0.25"/>
+     <point value="250" rank="0"/>
+    </ranking>
+   </method>
+
+
+<!-- method aspect -->
+
+  <!-- lines of code method -->
+  <method class="jmt.application.measurement.methods.LinesOfCode">
+    <ranking type="plateau">
+     <point value="5" rank="1"/>
+     <point value="10" rank="0.75"/>
+     <point value="25" rank="0.5"/>
+     <point value="50" rank="0.25"/>
+     <point value="100" rank="0"/>
+    </ranking>
+   </method>
+
+  <!-- number of parameter method -->
+  <method class="jmt.application.measurement.methods.NumberOfParameter">
+    <ranking type="plateau">
+     <point value="1" rank="1"/>
+     <point value="2" rank="0.75"/>
+     <point value="3" rank="0.5"/>
+     <point value="4" rank="0.25"/>
+     <point value="6" rank="0"/>
+    </ranking>
+   </method>
+</measurement>

@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.widget.ImageView;
 
+import com.snatik.matches.common.ScreenEnum;
 import com.snatik.matches.common.Shared;
 import com.snatik.matches.engine.Engine;
 import com.snatik.matches.engine.ScreenController;
-import com.snatik.matches.engine.ScreenController.Screen;
 import com.snatik.matches.events.EventBus;
 import com.snatik.matches.events.ui.BackGameEvent;
 import com.snatik.matches.ui.PopupManager;
@@ -24,28 +24,27 @@ public class MainActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 
 		Shared.context = getApplicationContext();
-		Shared.engine = Engine.getInstance();
 		Shared.eventBus = EventBus.getInstance();
 
 		setContentView(R.layout.activity_main);
 		mBackgroundImage = (ImageView) findViewById(R.id.background_image);
 
 		Shared.activity = this;
-		Shared.engine.start();
-		Shared.engine.setBackgroundImageView(mBackgroundImage);
+		Engine.getInstance().start();
+		Engine.getInstance().setBackgroundImageView(mBackgroundImage);
 
 		// set background
 		setBackgroundImage();
 
 		// set menu
-		ScreenController.getInstance().openScreen(Screen.MENU);
+		ScreenController.getInstance().openScreen(ScreenEnum.Screen.MENU);
 
 
 	}
 
 	@Override
 	protected void onDestroy() {
-		Shared.engine.stop();
+		Engine.getInstance().stop();
 		super.onDestroy();
 	}
 
@@ -53,7 +52,7 @@ public class MainActivity extends FragmentActivity {
 	public void onBackPressed() {
 		if (PopupManager.isShown()) {
 			PopupManager.closePopup();
-			if (ScreenController.getLastScreen() == Screen.GAME) {
+			if (ScreenController.getLastScreen() == ScreenEnum.Screen.GAME) {
 				Shared.eventBus.notify(new BackGameEvent());
 			}
 		} else if (ScreenController.getInstance().onBack()) {

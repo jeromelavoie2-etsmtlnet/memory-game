@@ -22,10 +22,11 @@ import com.snatik.matches.ui.DifficultyView;
 
 public class DifficultySelectFragment extends Fragment {
 
+    public static Theme theme = null;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = LayoutInflater.from(Shared.context).inflate(R.layout.difficulty_select_fragment, container, false);
-        Theme theme = Shared.engine.getSelectedTheme();
 
         DifficultyView difficulty1 = (DifficultyView) view.findViewById(R.id.select_difficulty_1);
         difficulty1.setDifficulty(1, Memory.getHighStars(theme.id, 1));
